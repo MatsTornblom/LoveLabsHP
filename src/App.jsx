@@ -37,21 +37,21 @@ function Section({ heading, text, index }) {
   return (
     <section
       ref={ref}
-      className={`w-full py-12 transition-all duration-[2000ms] flex ${
-        isLeft ? 'justify-start -mr-32' : 'justify-end -ml-32'
-      } px-20 ${
+      className={`w-full py-8 sm:py-12 transition-all duration-[2000ms] flex ${
+        isLeft ? 'justify-start -mr-0 sm:-mr-4 md:-mr-8 lg:-mr-32' : 'justify-end -ml-0 sm:-ml-4 md:-ml-8 lg:-ml-32'
+      } px-4 sm:px-6 md:px-12 lg:px-20 ${
         isInView
           ? 'opacity-100 translate-x-0'
           : isLeft
-            ? 'opacity-0 translate-x-[400px]'
-            : 'opacity-0 -translate-x-[400px]'
+            ? 'opacity-0 translate-x-[60px] sm:translate-x-[150px] md:translate-x-[250px] lg:translate-x-[400px]'
+            : 'opacity-0 -translate-x-[60px] sm:-translate-x-[150px] md:-translate-x-[250px] lg:-translate-x-[400px]'
       }`}
     >
-      <div className={`max-w-2xl ${isLeft ? 'ml-16' : ''}`}>
-        <h2 className="font-heading text-3xl md:text-4xl text-brand-accent mb-6 leading-tight">
+      <div className={`w-full max-w-xs sm:max-w-sm md:max-w-xl lg:max-w-2xl ${isLeft ? 'ml-0 sm:ml-2 md:ml-8 lg:ml-16' : ''}`}>
+        <h2 className="font-heading text-2xl sm:text-3xl md:text-4xl text-brand-accent mb-4 sm:mb-6 leading-tight">
           {heading}
         </h2>
-        <p className="font-body text-brand-primary leading-relaxed text-lg">
+        <p className="font-body text-brand-primary leading-relaxed text-base sm:text-lg">
           {text}
         </p>
       </div>
@@ -66,7 +66,7 @@ function Divider() {
   return (
     <div
       ref={ref}
-      className={`max-w-4xl mx-auto px-20 py-4 transition-all duration-[2000ms] ${
+      className={`max-w-4xl mx-auto px-4 sm:px-6 md:px-12 lg:px-20 py-4 transition-all duration-[2000ms] ${
         isInView ? 'scale-x-100 opacity-100' : 'scale-x-0 opacity-0'
       } origin-center`}
       style={{
@@ -85,7 +85,7 @@ export default function App() {
     <div className="min-h-screen bg-brand-bg flex flex-col">
 
       {/* Hero */}
-      <header ref={heroRef} className="flex flex-col items-center px-20 pt-16 pb-0">
+      <header ref={heroRef} className="flex flex-col items-center px-4 sm:px-6 md:px-12 lg:px-20 pt-8 sm:pt-12 md:pt-16 pb-0">
         <img
           src={heroImg}
           alt="LoveLabs – Incentivizing love on the internet"
@@ -133,7 +133,7 @@ export default function App() {
       <div className="flex-1" />
 
       {/* Footer */}
-      <footer className="bg-brand-accent text-white py-12 px-20">
+      <footer className="bg-brand-accent text-white py-8 sm:py-12 px-4 sm:px-6 md:px-12 lg:px-20">
         <div className="max-w-6xl mx-auto">
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-8">
             {/* Company Info */}
