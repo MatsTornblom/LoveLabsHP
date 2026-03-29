@@ -1,5 +1,6 @@
 import { useRef, useEffect, useState } from 'react'
 import heroImg from './assets/hero.png'
+import heroImgMobile from './assets/hero-mobile.png'
 
 // Custom hook to detect when element comes into view
 function useInView(ref, options = {}) {
@@ -86,11 +87,14 @@ export default function App() {
 
       {/* Hero */}
       <header ref={heroRef} className="flex flex-col items-center px-4 sm:px-6 md:px-12 lg:px-20 pt-8 sm:pt-12 md:pt-16 pb-0">
-        <img
-          src={heroImg}
-          alt="LoveLabs – Incentivizing love on the internet"
-          className="w-full max-w-5xl"
-        />
+        <picture>
+          <source media="(max-width: 768px)" srcSet={heroImgMobile} />
+          <img
+            src={heroImg}
+            alt="LoveLabs – Incentivizing love on the internet"
+            className="w-full max-w-5xl"
+          />
+        </picture>
       </header>
 
       <Divider />
